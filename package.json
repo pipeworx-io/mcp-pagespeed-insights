@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-pagespeed-insights",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Google PageSpeed Insights — runs Lighthouse against any public URL and returns the performance scores, the real-user field data, and the ranked list of fixes.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-635b7cf332e3a7be6fca121131751407c2bc6a4e365ce2cc58a2e5a75635f397",
-    "sourceCommit": "b0fb3c31386cf0256dcf1e2f1b3440435a87ec35"
+    "sourceHash": "v1-4e47565f89edaece872b27d884ed36dd58b16c0475651c77fa7fec192594781e",
+    "sourceCommit": "4d51421bd010ad9a322c2245b70b401604912eff"
   }
 }
