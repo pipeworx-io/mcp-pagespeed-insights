@@ -1,0 +1,65 @@
+[
+  {
+    "name": "pagespeed_audit",
+    "description": "Run Google's PageSpeed Insights (Lighthouse) against any public URL and get back the performance, accessibility, best-practices and SEO scores, the lab timing metrics behind them, and the RANKED list of specific fixes with the milliseconds or bytes each one would save — render-blocking resources, unused JavaScript and CSS, unoptimised images, missing text compression. AUTHORITATIVE for \"why is this page slow and what do I fix first\": this is Google's own analyser running the page on Google's infrastructure, which is what no amount of reading a site's HTML can substitute for. Works on any public site, including a competitor's. A call takes 10-40 seconds because the page is genuinely loaded.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "Full page URL to analyse, including the scheme, e.g. https://www.example.com/pricing."
+        },
+        "strategy": {
+          "type": "string",
+          "description": "Device to emulate: mobile (the default, and what Google indexes with) or desktop.",
+          "enum": [
+            "mobile",
+            "desktop"
+          ]
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Which Lighthouse categories to run. Defaults to performance only, which is much faster. Options: performance, accessibility, best-practices, seo."
+        },
+        "max_opportunities": {
+          "type": "number",
+          "description": "How many ranked improvement opportunities to return (default 10, max 30)."
+        },
+        "locale": {
+          "type": "string",
+          "description": "BCP-47 locale for the audit titles, e.g. en, fr, ja. Defaults to English."
+        }
+      },
+      "required": [
+        "url"
+      ]
+    }
+  },
+  {
+    "name": "pagespeed_field_metrics",
+    "description": "Real-user Core Web Vitals for a page AND for its whole origin in one call, from Google's Chrome UX Report as PageSpeed Insights serves it — 75th-percentile Largest Contentful Paint, Interaction to Next Paint, Cumulative Layout Shift and Time to First Byte, with the good/needs-improvement/poor split behind each and Google's own pass/fail verdict. AUTHORITATIVE for whether a page passes Core Web Vitals, and it says plainly when a low-traffic page has no data of its own and Google substituted the origin's — a substitution that otherwise reads as page data and misattributes the whole site's performance to one URL.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "Full page URL, including the scheme, e.g. https://www.example.com/pricing."
+        },
+        "strategy": {
+          "type": "string",
+          "description": "Device class for the field data: mobile (the default) or desktop.",
+          "enum": [
+            "mobile",
+            "desktop"
+          ]
+        }
+      },
+      "required": [
+        "url"
+      ]
+    }
+  }
+]

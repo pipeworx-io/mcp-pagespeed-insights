@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-pagespeed-insights",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Google PageSpeed Insights — runs Lighthouse against any public URL and returns the performance scores, the real-user field data, and the ranked list of fixes.",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-pagespeed-insights": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "pagespeed-insights"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-pagespeed-insights.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/pagespeed-insights",
   "pipeworx": {
-    "sourceHash": "v1-0a34ab00165f58fc42349e48cbe28622717cfece638cc97620006e9449e3325c",
-    "sourceCommit": "f54ad77e789f27fe393978f9c080b5b18c87bb4f"
+    "mode": "gateway",
+    "slug": "pagespeed-insights",
+    "gatewaySlug": "pagespeed-insights",
+    "sourceHash": "v1-84d5691d88e3b0830601a680c0afb735c2ab69b88c303fc19d8f2f689fca06f5",
+    "sourceCommit": "6bae4cfa7b6a73bbe014dc8820a19c80c842b21e"
   }
 }
